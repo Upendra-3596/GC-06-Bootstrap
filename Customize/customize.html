@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar Menu</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Button styling */
+    #menuBtn {
+      height: 25px;
+      border-radius: 25px;
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 0 15px;
+    }
+
+    /* Sidebar styling */
+    #sidebar {
+      height: 100px;
+      width: 25%;
+      background-color: gray;
+      position: fixed;
+      top: 50%;
+      left: -25%; /* hidden initially */
+      transform: translateY(-50%);
+      transition: left 0.3s ease;
+      padding: 10px;
+    }
+
+    /* Sidebar visible */
+    #sidebar.active {
+      left: 0;
+    }
+  </style>
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100">
+
+  <!-- Center Button -->
+  <button id="menuBtn">Click me for Menu bar</button>
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <ul class="list-unstyled">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const sidebar = document.getElementById("sidebar");
+
+    btn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+      if (sidebar.classList.contains("active")) {
+        btn.style.backgroundColor = "red";
+      } else {
+        btn.style.backgroundColor = "green";
+      }
+    });
+  </script>
+</body>
+</html>
